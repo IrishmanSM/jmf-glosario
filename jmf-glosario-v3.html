@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glosario Financiero — Julián Marino Finanzas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1A6B1A;
+    --green-mid: #2E8B2E;
+    --green-light: #4CAF4C;
+    --green-bg: #F0F7F0;
+    --green-bg2: #E4F2E4;
+    --green-dim: rgba(26,107,26,0.08);
+    --green-border: rgba(26,107,26,0.18);
+    --white: #FFFFFF;
+    --gray-1: #1A1D23;
+    --gray-2: #3D4450;
+    --gray-3: #6B7280;
+    --gray-4: #9CA3AF;
+    --gray-5: #E5E9EF;
+    --gray-6: #F4F6F9;
+    --border: #E0E6EC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--gray-1);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--white);
+    border-bottom: 1.5px solid var(--border);
+    padding: 14px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  }
+
+  .header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .logo-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--green-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    color: var(--gray-3);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .header-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green-dark);
+    background: var(--green-bg);
+    border: 1.5px solid var(--green-border);
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    padding: 48px 24px 44px;
+  }
+
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .hero-title span {
+    color: rgba(255,255,255,0.55);
+    font-weight: 700;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.65;
+    max-width: 500px;
+    margin-bottom: 28px;
+  }
+
+  /* SEARCH */
+  .search-wrap {
+    position: relative;
+    max-width: 460px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-4);
+    font-size: 14px;
+    pointer-events: none;
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 13px 16px 13px 40px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.12);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    backdrop-filter: blur(4px);
+  }
+
+  .search-box:focus {
+    border-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .search-box::placeholder { color: rgba(255,255,255,0.45); }
+
+  /* TOPIC FILTER */
+  .topic-filter {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 20px 24px 4px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .topic-btn {
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-3);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .topic-btn:hover {
+    border-color: var(--green-mid);
+    color: var(--green-dark);
+    background: var(--green-bg);
+  }
+
+  .topic-btn.active {
+    background: var(--green-dark);
+    color: var(--white);
+    border-color: var(--green-dark);
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 12px 24px 20px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .stat {
+    font-size: 12px;
+    color: var(--gray-3);
+    font-weight: 500;
+  }
+
+  .stat strong {
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 760px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+  }
+
+  /* TOPIC SECTION */
+  .topic-section { margin-bottom: 40px; }
+
+  .topic-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--green-bg2);
+  }
+
+  .topic-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--green-bg);
+    border: 1.5px solid var(--green-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .topic-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--green-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .topic-count {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green-mid);
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+  }
+
+  /* CONCEPT CARD */
+  .concept-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    overflow: hidden;
+  }
+
+  .concept-card:hover {
+    border-color: var(--green-light);
+    box-shadow: 0 2px 12px rgba(26,107,26,0.08);
+  }
+
+  .concept-card.expanded {
+    border-color: var(--green-mid);
+    box-shadow: 0 4px 20px rgba(26,107,26,0.10);
+  }
+
+  .card-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 17px 18px;
+  }
+
+  .card-left {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .card-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--green-dark);
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    padding: 3px 9px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .card-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--gray-1);
+    line-height: 1.3;
+  }
+
+  .card-arrow {
+    color: var(--gray-4);
+    font-size: 16px;
+    transition: transform 0.2s, color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .concept-card.expanded .card-arrow {
+    transform: rotate(180deg);
+    color: var(--green-mid);
+  }
+
+  .card-body {
+    display: none;
+    padding: 0 18px 18px;
+    border-top: 1.5px solid var(--gray-5);
+  }
+
+  .concept-card.expanded .card-body { display: block; }
+
+  .card-body-inner { padding-top: 16px; }
+
+  .card-body p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--gray-2);
+    margin-bottom: 10px;
+  }
+
+  .card-body p:last-child { margin-bottom: 0; }
+  .card-body strong { color: var(--gray-1); font-weight: 600; }
+
+  .card-body ul {
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .card-body ul li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-2);
+    padding: 9px 12px 9px 16px;
+    background: var(--gray-6);
+    border-radius: 8px;
+    border-left: 3px solid var(--green-light);
+  }
+
+  .card-body ul li strong { color: var(--gray-1); }
+
+  .tip-box {
+    background: var(--green-bg);
+    border: 1.5px solid var(--green-border);
+    border-radius: 9px;
+    padding: 12px 14px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--gray-2);
+    line-height: 1.65;
+  }
+
+  .tip-box strong { color: var(--green-dark); }
+
+  /* NO RESULTS */
+  #no-results {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-3);
+    font-size: 15px;
+  }
+  #no-results p { margin-top: 8px; font-size: 13px; color: var(--gray-4); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1.5px solid var(--border);
+    background: var(--gray-6);
+    text-align: center;
+    padding: 22px;
+    font-size: 12px;
+    color: var(--gray-3);
+  }
+  footer a { color: var(--green-dark); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 480px) {
+    .header-badge { display: none; }
+    .logo-text .logo-sub { display: none; }
+    .hero { padding: 36px 20px 36px; }
+    .topic-filter { padding: 16px 20px 4px; }
+    main { padding: 0 16px; }
+    .stats-bar { padding: 10px 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://julianmarinofinanzas.com" target="_blank">
+      <img src="data:image/png;base64,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" alt="Julián Marino Finanzas">
+      <div class="logo-text">
+        <span class="logo-name">Julián Marino Finanzas</span>
+        <span class="logo-sub">Educación Financiera</span>
+      </div>
+    </a>
+    <div class="header-badge">📚 Glosario</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Contenido educativo</div>
+    <h1 class="hero-title">Glosario <span>Financiero</span></h1>
+    <p class="hero-desc">Todos los conceptos que mandamos a la comunidad, ordenados por tema y siempre actualizados. Un concepto a la vez, sin tecnicismos.</p>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-box" id="search" type="text" placeholder="Buscá un concepto... ej: inflación, bono, CEDEAR">
+    </div>
+  </div>
+</div>
+
+<div class="topic-filter" id="topicFilter">
+  <button class="topic-btn active" data-topic="all">Todos</button>
+  <button class="topic-btn" data-topic="base">Conceptos base</button>
+  <button class="topic-btn" data-topic="bonos">Bonos</button>
+  <button class="topic-btn" data-topic="acciones">Acciones</button>
+  <button class="topic-btn" data-topic="cedears">CEDEARs</button>
+  <button class="topic-btn" data-topic="ons">ONs</button>
+  <button class="topic-btn" data-topic="fcis">FCIs</button>
+</div>
+
+<div class="stats-bar">
+  <span class="stat" id="stat-count"><strong>20</strong> conceptos</span>
+  <span class="stat" id="stat-topics"><strong>6</strong> temas</span>
+</div>
+
+<main>
+  <div id="no-results">
+    <div style="font-size:32px;margin-bottom:12px">🔍</div>
+    No encontramos ningún concepto con esa búsqueda.
+    <p>Intentá con otra palabra clave.</p>
+  </div>
+  <div id="content"></div>
+</main>
+
+<footer>
+  Contenido educativo preparado por <a href="https://julianmarinofinanzas.com" target="_blank">Julián Marino Finanzas</a> · Ágora Asset Management · CNV AP-2598
+</footer>
+
+<script>
+const data = [
+  {
+    topic: "base",
+    topicLabel: "Conceptos Base",
+    topicIcon: "💡",
+    concepts: [
+      {
+        num: "#1",
+        title: "Inflación",
+        body: `
+          <p>La <strong>inflación</strong> es el aumento generalizado de los precios a lo largo del tiempo.</p>
+          <p>Si hoy un kilo de pan cuesta $1.000 y el año que viene cuesta $1.300, eso es inflación del <strong>30%</strong>.</p>
+          <div class="tip-box">💡 Si el dinero no crece al mismo ritmo que la inflación, se <strong>pierde poder de compra</strong> aunque el número en la cuenta bancaria no cambie. Por eso guardar billetes abajo del colchón es, en la práctica, perder dinero todos los días.</div>
+        `
+      },
+      {
+        num: "#2",
+        title: "Poder adquisitivo",
+        body: `
+          <p>El <strong>poder adquisitivo</strong> es lo que se puede comprar con el dinero disponible.</p>
+          <p>Si se tienen $100.000 y la inflación sube 50% en un año, esos $100.000 ahora equivalen a lo que antes se compraba con $66.000.</p>
+          <p>El número no cambió. Lo que cambió es <strong>cuánto vale ese número</strong>.</p>
+          <div class="tip-box">💡 Invertir bien no es solo "hacer más dinero" — es que el capital no pierda lo que ya tiene.</div>
+        `
+      },
+      {
+        num: "#3",
+        title: "Tasa de interés",
+        body: `
+          <p>La <strong>tasa de interés</strong> es el precio del dinero.</p>
+          <p>Al pedir un préstamo, se paga una tasa. Al invertir (o hacer un plazo fijo), se cobra una tasa.</p>
+          <p><strong>Ejemplo:</strong> se colocan $100.000 en un plazo fijo al <strong>3% mensual</strong>. Al mes se tienen $103.000. Esos $3.000 son el interés que paga el banco por usar ese dinero.</p>
+          <div class="tip-box">💡 La tasa importa, pero más importante es compararla con la inflación. Si la inflación es 4% y la tasa es 3%, <strong>se está perdiendo</strong> aunque se cobren intereses.</div>
+        `
+      },
+      {
+        num: "#4",
+        title: "Plazo fijo",
+        body: `
+          <p>El <strong>plazo fijo</strong> es el instrumento de ahorro más conocido en Argentina.</p>
+          <p>Se deposita el dinero en el banco por un tiempo determinado (mínimo 30 días) y al vencimiento devuelven el capital más los intereses pactados.</p>
+          <ul>
+            <li><strong>✅ Ventajas:</strong> es simple, predecible y está garantizado por el banco.</li>
+            <li><strong>❌ Desventaja:</strong> en Argentina, casi siempre rinde por debajo de la inflación.</li>
+          </ul>
+          <div class="tip-box">💡 Es un buen punto de partida para entender cómo funciona invertir, pero raramente es la mejor opción para proteger los ahorros a largo plazo.</div>
+        `
+      },
+      {
+        num: "#5",
+        title: "Rendimiento real",
+        body: `
+          <p>El <strong>rendimiento real</strong> es lo que verdaderamente se gana después de descontarle la inflación a una inversión.</p>
+          <p><strong>Ejemplo:</strong></p>
+          <ul>
+            <li>El plazo fijo rindió <strong>40% anual</strong></li>
+            <li>La inflación del año fue <strong>50%</strong></li>
+            <li>El rendimiento real fue <strong>-10%</strong></li>
+          </ul>
+          <p>Se ganó nominalmente, pero se perdió poder adquisitivo.</p>
+          <div class="tip-box">💡 Siempre que se evalúe una inversión, la pregunta clave es: <strong>¿esto le gana a la inflación?</strong> Esa es la vara que importa.</div>
+        `
+      }
+    ]
+  },
+  {
+    topic: "bonos",
+    topicLabel: "Bonos",
+    topicIcon: "📄",
+    concepts: [
+      {
+        num: "#6",
+        title: "¿Qué es un bono?",
+        body: `
+          <p>Un <strong>bono</strong> es un préstamo que se le hace al Estado o a una empresa.</p>
+          <p>Ellos piden dinero hoy y se comprometen a devolverlo en un plazo determinado, más intereses periódicos que se llaman <strong>cupones</strong>.</p>
+          <p><strong>Ejemplo:</strong> se compra un bono del Estado argentino que vence en 2030 y paga intereses cada 6 meses. Hasta 2030 se cobran esos intereses y al vencimiento se recupera el capital.</p>
+          <div class="tip-box">💡 Es una forma de invertir con un flujo de pagos <strong>claro y predecible desde el inicio</strong>.</div>
+        `
+      },
+      {
+        num: "#7",
+        title: "Cupón y amortización de un bono",
+        body: `
+          <p>El <strong>cupón</strong> es el interés que se cobra por tener un bono, de forma periódica.</p>
+          <p><strong>Ejemplo:</strong> se compra un bono de <strong>USD 1.000</strong> con un cupón del <strong>5% anual</strong> pagadero cada 6 meses. Eso significa que cada 6 meses se cobran <strong>USD 25</strong>, y al vencimiento además se recuperan los USD 1.000 invertidos.</p>
+          <p>Esa devolución del capital se llama <strong>amortización</strong>, y hay dos formas:</p>
+          <ul>
+            <li><strong>Bono bullet</strong> — devuelve todo el capital al final, en una sola vez al vencimiento.</li>
+            <li><strong>Bono amortizable</strong> — va devolviendo el capital en cuotas a lo largo de la vida del bono.</li>
+          </ul>
+          <div class="tip-box">💡 El cupón está fijo desde que se compra el bono. Lo que puede cambiar es el <strong>precio de mercado</strong> del bono.</div>
+        `
+      },
+      {
+        num: "#8",
+        title: "¿Por qué el precio de un bono sube y baja?",
+        body: `
+          <p>Aunque el cupón de un bono es fijo, su <strong>precio en el mercado cambia todos los días</strong>.</p>
+          <p>La lógica es simple: si se tiene un bono que paga <strong>5% anual</strong> y el mercado empieza a ofrecer bonos nuevos al <strong>8%</strong>, el anterior se vuelve menos atractivo y su precio tiene que <strong>bajar</strong>. Lo contrario también aplica: si las tasas bajan al <strong>3%</strong>, el bono que paga 5% se vuelve más atractivo y su precio <strong>sube</strong>.</p>
+          <ul>
+            <li><strong>Tasas suben</strong> → precio del bono baja ⬇️</li>
+            <li><strong>Tasas bajan</strong> → precio del bono sube ⬆️</li>
+          </ul>
+          <p>Otros factores que mueven el precio: la <strong>confianza en el emisor</strong>, la <strong>inflación</strong> y el <strong>tiempo hasta el vencimiento</strong>.</p>
+          <div class="tip-box">💡 Esto no afecta a quienes mantienen el bono hasta el vencimiento — siempre se cobra el cupón y se recupera el capital. El precio de mercado solo importa si se quiere <strong>vender antes de tiempo</strong>.</div>
+        `
+      }
+    ]
+  },
+  {
+    topic: "acciones",
+    topicLabel: "Acciones",
+    topicIcon: "📈",
+    concepts: [
+      {
+        num: "#9",
+        title: "¿Qué es una acción?",
+        body: `
+          <p>Una <strong>acción</strong> es una parte del capital de una empresa.</p>
+          <p>Al comprar una acción de YPF, se pasa a ser dueño de una fracción pequeña de YPF. Si a la empresa le va bien, el valor de la acción sube. Si le va mal, baja.</p>
+          <p>A diferencia de un bono, acá <strong>no hay un monto fijo prometido</strong> — la ganancia depende de cómo le vaya al negocio.</p>
+          <div class="tip-box">💡 Las acciones tienen más volatilidad que los bonos, pero históricamente son las que más rinden a largo plazo. Son para quienes pueden esperar y tolerar que el precio fluctúe en el camino.</div>
+        `
+      },
+      {
+        num: "#10",
+        title: "¿Cómo se gana dinero con una acción?",
+        body: `
+          <p>Hay dos formas de ganar dinero con una acción:</p>
+          <ul>
+            <li><strong>Suba de precio</strong> — se compra a $1.000 y se vende a $1.500. La diferencia es la ganancia. Esto se llama <strong>ganancia de capital</strong>.</li>
+            <li><strong>Dividendos</strong> — algunas empresas reparten parte de sus ganancias entre sus accionistas de forma periódica. Se cobra sin necesidad de vender.</li>
+          </ul>
+          <p>No todas las empresas pagan dividendos. Las que están en etapa de crecimiento suelen reinvertir sus ganancias en el negocio en lugar de repartirlas.</p>
+          <div class="tip-box">💡 En Argentina los dividendos son menos comunes que en mercados más maduros como el de EE.UU., donde muchas empresas grandes los pagan de forma regular y predecible.</div>
+        `
+      },
+      {
+        num: "#11",
+        title: "¿Qué es el Merval y el S&P 500?",
+        body: `
+          <p>Un <strong>índice bursátil</strong> es una canasta de acciones que representa el comportamiento general de un mercado.</p>
+          <ul>
+            <li>El <strong>Merval</strong> agrupa las empresas más importantes de la bolsa argentina: YPF, Banco Galicia, Grupo Financiero Valores, entre otras.</li>
+            <li>El <strong>S&P 500</strong> agrupa las 500 empresas más grandes de EE.UU.: Apple, Google, Amazon, Microsoft, entre otras.</li>
+          </ul>
+          <p>Cuando se dice "subió la bolsa argentina", se hace referencia al Merval. Es el termómetro del mercado local.</p>
+          <div class="tip-box">💡 Aprender a leer los índices da una idea rápida de si el clima general es favorable o no para las acciones.</div>
+        `
+      }
+    ]
+  },
+  {
+    topic: "cedears",
+    topicLabel: "CEDEARs",
+    topicIcon: "🌎",
+    concepts: [
+      {
+        num: "#12",
+        title: "¿Qué es un CEDEAR?",
+        body: `
+          <p>Un <strong>CEDEAR</strong> es un certificado que permite invertir en empresas del exterior <strong>desde Argentina y en pesos</strong>.</p>
+          <p>Se puede comprar un CEDEAR de Apple, Google o Amazon en la bolsa argentina igual que se compraría una acción local, pero se está invirtiendo en esas empresas americanas.</p>
+          <div class="tip-box">💡 Es una de las formas más accesibles de invertir en el exterior sin necesidad de tener una cuenta afuera.</div>
+        `
+      },
+      {
+        num: "#13",
+        title: "¿Por qué un CEDEAR sirve para dolarizarse?",
+        body: `
+          <p>El precio de un CEDEAR en pesos está <strong>atado al precio de la acción en dólares y al tipo de cambio</strong>. Ambas variables afectan al mismo tiempo.</p>
+          <p><strong>Escenario 1 — la acción sube pero el dólar baja:</strong></p>
+          <ul>
+            <li>La acción de Apple en EE.UU. sube <strong>+5%</strong></li>
+            <li>El dólar baja <strong>-10%</strong></li>
+            <li>El CEDEAR en pesos termina valiendo aproximadamente <strong>-5%</strong></li>
+          </ul>
+          <p><strong>Escenario 2 — la acción baja pero el dólar sube:</strong></p>
+          <ul>
+            <li>La acción de Apple en EE.UU. baja <strong>-5%</strong></li>
+            <li>El dólar sube <strong>+10%</strong></li>
+            <li>El CEDEAR en pesos termina valiendo aproximadamente <strong>+5%</strong></li>
+          </ul>
+          <p>En términos prácticos, comprar un CEDEAR de Apple <strong>es casi lo mismo</strong> que comprar dólares y comprar la acción en un broker del exterior. La diferencia está en los costos: es <strong>más barato impositivamente</strong> para el inversor argentino.</p>
+          <div class="tip-box">💡 Lo ideal es que ambas variables acompañen — dólar estable o al alza y empresa con buenos fundamentos.</div>
+        `
+      },
+      {
+        num: "#14",
+        title: "¿Qué es el ratio de conversión?",
+        body: `
+          <p>Cada CEDEAR representa una <strong>fracción</strong> de la acción original en el exterior. Ese número se llama <strong>ratio de conversión</strong>.</p>
+          <p>Por ejemplo, el ratio de Apple es 20: se necesitan 20 CEDEARs para equivaler a 1 acción real de Apple en EE.UU.</p>
+          <p><strong>Ejemplo práctico:</strong></p>
+          <ul>
+            <li>Apple cotiza en EE.UU. a <strong>USD 305</strong></li>
+            <li>El tipo de cambio es <strong>$1.500 por dólar</strong></li>
+            <li>El ratio es <strong>20</strong></li>
+            <li>Cada CEDEAR vale aproximadamente <strong>$22.875 pesos</strong></li>
+          </ul>
+          <p>Con $22.875 pesos se está comprando la exposición equivalente a USD 15,25 invertidos en Apple.</p>
+          <div class="tip-box">💡 El ratio no afecta el rendimiento — si Apple sube 10%, el CEDEAR también sube aproximadamente 10%. Solo determina el <strong>precio unitario en pesos</strong> de entrada.</div>
+        `
+      }
+    ]
+  },
+  {
+    topic: "ons",
+    topicLabel: "ONs",
+    topicIcon: "🏢",
+    concepts: [
+      {
+        num: "#15",
+        title: "¿Qué es una ON?",
+        body: `
+          <p>Una <strong>ON (Obligación Negociable)</strong> es un bono emitido por una empresa privada.</p>
+          <p>Cuando una empresa necesita financiarse, en lugar de ir al banco puede emitir una ON y pedirle el dinero directamente al mercado. Los inversores le prestan ese dinero y la empresa paga intereses periódicos más la devolución del capital al vencimiento.</p>
+          <p><strong>Ejemplos en Argentina:</strong> YPF, Pampa Energía, Mercado Libre, Loma Negra.</p>
+          <div class="tip-box">💡 En general rinden <strong>más que un plazo fijo</strong> y tienen el flujo de pagos claro desde el inicio.</div>
+        `
+      },
+      {
+        num: "#16",
+        title: "ON en pesos vs. ON en dólares",
+        body: `
+          <p>Las ONs pueden estar denominadas en distintas monedas. La más usada por inversores individuales es, por lejos, la <strong>ON en dólares</strong>:</p>
+          <ul>
+            <li>El flujo de pagos es <strong>claro y predecible</strong></li>
+            <li>Protege de la <strong>devaluación del peso</strong></li>
+            <li>Protege de la <strong>inflación</strong></li>
+            <li>Las empresas emisoras suelen ser grandes y sólidas</li>
+          </ul>
+          <p>Los otros tipos son más técnicos, usados principalmente por empresas o FCIs:</p>
+          <ul>
+            <li><strong>ON dollar linked</strong> — atada al tipo de cambio oficial pero pagada en pesos.</li>
+            <li><strong>ON CER</strong> — ajusta por inflación, pagada en pesos.</li>
+            <li><strong>ON tasa fija en pesos</strong> — pagos fijos en pesos sin ajuste.</li>
+          </ul>
+          <div class="tip-box">💡 Para el inversor individual que busca preservar capital y tener previsibilidad, <strong>la ON en dólares es el instrumento más recomendado</strong> dentro de la renta fija privada.</div>
+        `
+      },
+      {
+        num: "#17",
+        title: "¿Qué riesgo tiene una ON?",
+        body: `
+          <p>El principal riesgo de una ON es el <strong>riesgo crediticio</strong>: que la empresa no pueda cumplir con los pagos.</p>
+          <p>Las <strong>calificadoras de riesgo</strong> son agencias especializadas que analizan la salud financiera de cada empresa y le asignan una nota. Cuanto mejor la nota, más segura es la ON.</p>
+          <p>La regla de oro de la renta fija:</p>
+          <ul>
+            <li><strong>Mayor riesgo → mayor tasa</strong> — las empresas más riesgosas ofrecen más rendimiento para atraer inversores.</li>
+            <li><strong>Menor riesgo → menor tasa</strong> — las empresas sólidas pueden permitirse pagar menos.</li>
+          </ul>
+          <div class="tip-box">💡 Desde el equipo siempre priorizamos ONs de empresas grandes, con buenos fundamentos y trayectoria de pago. El rendimiento importa, pero la <strong>seguridad del cobro importa más</strong>.</div>
+        `
+      }
+    ]
+  },
+  {
+    topic: "fcis",
+    topicLabel: "FCIs",
+    topicIcon: "🧺",
+    concepts: [
+      {
+        num: "#18",
+        title: "¿Qué es un FCI?",
+        body: `
+          <p>Un <strong>FCI (Fondo Común de Inversión)</strong> es un fondo donde muchas personas ponen su dinero junto y un equipo profesional lo invierte por todos.</p>
+          <p><strong>Ejemplo:</strong> con $50.000 pesos sería muy difícil comprar bonos, acciones y ONs al mismo tiempo. Dentro de un FCI, ese mismo capital ya está invertido en <strong>decenas de instrumentos distintos</strong> simultáneamente.</p>
+          <ul>
+            <li>Se puede comenzar con <strong>poco dinero</strong></li>
+            <li>Un equipo profesional toma las decisiones de inversión</li>
+            <li>La inversión queda <strong>diversificada</strong> desde el primer día</li>
+            <li>En la mayoría de los casos se puede rescatar el dinero <strong>en cualquier momento</strong></li>
+          </ul>
+          <div class="tip-box">💡 Es el instrumento más recomendado para <strong>empezar a invertir</strong> porque no requiere conocimiento previo ni montos mínimos altos.</div>
+        `
+      },
+      {
+        num: "#19",
+        title: "Tipos de FCIs",
+        body: `
+          <p>No todos los fondos son iguales. Los principales tipos son:</p>
+          <ul>
+            <li><strong>Money market</strong> — los más seguros. Funcionan como una "caja de ahorro con rendimiento". Rescate en el día.</li>
+            <li><strong>Renta fija</strong> — invierten en bonos y ONs. Más rendimiento que un money market, con algo más de volatilidad. Rescate en 24-48hs.</li>
+            <li><strong>Renta variable</strong> — invierten en acciones. Mayor potencial a largo plazo, con más oscilaciones en el camino.</li>
+            <li><strong>Mixtos</strong> — combinan bonos y acciones en distintas proporciones.</li>
+            <li><strong>En dólares o dollar linked</strong> — buscan proteger el capital ante movimientos del tipo de cambio.</li>
+          </ul>
+          <div class="tip-box">💡 Antes de entrar a un fondo, las dos preguntas clave son: <strong>¿en qué invierte?</strong> y <strong>¿en cuánto tiempo se puede rescatar el dinero?</strong></div>
+        `
+      },
+      {
+        num: "#20",
+        title: "¿Cuál FCI conviene elegir?",
+        body: `
+          <p>La respuesta depende de <strong>para qué se va a usar ese dinero y en cuánto tiempo</strong>:</p>
+          <ul>
+            <li><strong>Dinero disponible en cualquier momento</strong> → money market</li>
+            <li><strong>Dinero que no se necesita por 6 a 12 meses</strong> → renta fija</li>
+            <li><strong>Dinero que no se va a tocar por varios años</strong> → renta variable o mixto</li>
+            <li><strong>Para cubrirse del dólar</strong> → fondo dollar linked o en dólares</li>
+          </ul>
+          <p>El error más común es entrar a renta variable con dinero que se necesita en 3 meses — si el mercado cae en ese momento, se termina rescatando con pérdida.</p>
+          <div class="tip-box">💡 <strong>El plazo y el riesgo del fondo tienen que coincidir con la situación de cada inversor.</strong> No existe el fondo perfecto para todos — existe el fondo correcto para cada momento. Para eso estamos nosotros, cualquier consulta nos escriben por privado.</div>
+        `
+      }
+    ]
+  }
+];
+
+function render(filteredData) {
+  const container = document.getElementById('content');
+  const noResults = document.getElementById('no-results');
+  container.innerHTML = '';
+  let total = 0;
+  filteredData.forEach(t => total += t.concepts.length);
+
+  if (total === 0) { noResults.style.display = 'block'; return; }
+  noResults.style.display = 'none';
+
+  document.getElementById('stat-count').innerHTML = `<strong>${total}</strong> conceptos`;
+  const activeTopics = filteredData.filter(t => t.concepts.length > 0).length;
+  document.getElementById('stat-topics').innerHTML = `<strong>${activeTopics}</strong> tema${activeTopics !== 1 ? 's' : ''}`;
+
+  filteredData.forEach(topic => {
+    if (topic.concepts.length === 0) return;
+    const section = document.createElement('div');
+    section.className = 'topic-section';
+
+    section.innerHTML = `
+      <div class="topic-header">
+        <div class="topic-icon">${topic.topicIcon}</div>
+        <div class="topic-name">${topic.topicLabel}</div>
+        <div class="topic-count">${topic.concepts.length} concepto${topic.concepts.length !== 1 ? 's' : ''}</div>
+      </div>
+    `;
+
+    topic.concepts.forEach(concept => {
+      const card = document.createElement('div');
+      card.className = 'concept-card';
+      card.innerHTML = `
+        <div class="card-trigger">
+          <div class="card-left">
+            <span class="card-num">${concept.num}</span>
+            <span class="card-title">${concept.title}</span>
+          </div>
+          <span class="card-arrow">⌄</span>
+        </div>
+        <div class="card-body"><div class="card-body-inner">${concept.body}</div></div>
+      `;
+      card.addEventListener('click', () => {
+        const isOpen = card.classList.contains('expanded');
+        document.querySelectorAll('.concept-card.expanded').forEach(c => c.classList.remove('expanded'));
+        if (!isOpen) card.classList.add('expanded');
+      });
+      section.appendChild(card);
+    });
+    container.appendChild(section);
+  });
+}
+
+function getFiltered(topic, q) {
+  return data.map(t => ({
+    ...t,
+    concepts: (topic !== 'all' && t.topic !== topic) ? [] :
+      t.concepts.filter(c => !q || c.title.toLowerCase().includes(q) || c.body.toLowerCase().includes(q))
+  }));
+}
+
+document.getElementById('search').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  const active = document.querySelector('.topic-btn.active').dataset.topic;
+  render(getFiltered(active, q));
+});
+
+document.getElementById('topicFilter').addEventListener('click', function(e) {
+  if (!e.target.classList.contains('topic-btn')) return;
+  document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  render(getFiltered(e.target.dataset.topic, q));
+});
+
+render(getFiltered('all', ''));
+</script>
+</body>
+</html>
